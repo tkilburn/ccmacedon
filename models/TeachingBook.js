@@ -8,6 +8,7 @@ var Types = keystone.Field.Types;
 
 var TeachingBook = new keystone.List('TeachingBook', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	sortable: true,
 });
 
 TeachingBook.add({
