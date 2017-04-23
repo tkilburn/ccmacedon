@@ -15,9 +15,11 @@
 
 		{{#if data.ministries}}
 			{{#each data.ministries}}
-				<p>
-					{{title}} : {{time}}
-				</p>
+				{{#if homePage}}
+					<p>
+						{{title}} : {{time}}
+					</p>
+				{{/if}}
 			{{/each}}
 		{{/if}}
 
@@ -34,4 +36,4 @@
 		<hr />
 
 	</div>
-	</div>
+</div>

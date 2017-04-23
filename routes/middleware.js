@@ -20,12 +20,14 @@ var _ = require('lodash');
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
+		{ label: 'About', key: 'about', href: '/about' },
+		{ label: 'Ministries', key: 'ministries', href: '/ministries' },
+		{ label: 'Events', key: 'events', href: '/events' },
+		{ label: 'Teachings', key: 'teachings', href: '/teachings' },
 	];
 	res.locals.user = req.user;
 	next();
 };
-
 
 /**
 	Fetches and clears the flashMessages before a view is rendered

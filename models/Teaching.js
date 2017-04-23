@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var Teaching = new keystone.List('Teaching', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true },
+	autokey: { from: 'title', path: 'key', unique: true },
 });
 
 var myStorage = new keystone.Storage({
