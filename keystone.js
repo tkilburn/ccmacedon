@@ -15,7 +15,7 @@ keystone.init({
 	'brand': 'ccmacedon',
 
 	'sass': 'public',
-	'static': 'public',
+	'static': ['public', 'data/file'],
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': '.hbs',

@@ -31,6 +31,20 @@ var routes = {
 	views: importRoutes('./views'),
 };
 
+
+const getAudioTeaching = function () {
+
+	var fs = require('fs');
+
+	var file = fs.readFile('./data/file/SoundHelix-Song-1.mp3', 'binary');
+	// var file = fs.readFileSync('../data/file/tmp.txt', 'binary');
+	// var file = fs.readFileSync('./npm-debug.log', 'binary');
+	// console.log(file);
+
+	return file;
+};
+
+
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
@@ -40,6 +54,9 @@ exports = module.exports = function (app) {
 	app.get('/events', routes.views.event);
 	app.get('/teachings', routes.views.teachingCategory);
 	app.get('/teachings/:bookKey', routes.views.teachingBook);
+	app.get('/teachings/:bookKey/:lessonKey', routes.views.teaching);
+
+	app.get('/teachingaudio', getAudioTeaching);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 };
