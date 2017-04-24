@@ -14,6 +14,8 @@ keystone.init({
 	'name': 'ccmacedon',
 	'brand': 'ccmacedon',
 
+	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon',
+
 	'sass': 'public',
 	'static': ['public', 'data/file'],
 	'favicon': 'public/favicon.ico',
