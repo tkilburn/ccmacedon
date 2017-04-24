@@ -1,0 +1,13 @@
+{{!
+< default}} <div class="container">
+	<div class="jumbotron">
+		{{#each data.teachingCategories}}
+			<h2> {{name}} </h2>
+			<p> {{{description}}} </p>
+			{{#each books}}
+				<p><a href=/teachings/{{key}}>{{name}}</a></p>
+			{{/each}}
+			<hr />
+		{{/each}}
+	</div>
+</div>

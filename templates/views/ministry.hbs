@@ -1,0 +1,18 @@
+{{!
+< default}} <div class="container">
+	<div class="jumbotron">
+		{{#if data.ministries}}
+			{{#each data.ministries}}
+				{{#if ministryPage}}
+					<h2>{{title}}</h2>
+					<p>{{{time}}}</p>
+					<p>
+						{{#if description}}
+							{{{description}}}
+						{{/if}}
+					</p>
+				{{/if}}
+			{{/each}}
+		{{/if}}
+	</div>
+</div>

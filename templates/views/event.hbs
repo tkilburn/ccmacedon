@@ -1,0 +1,12 @@
+{{!
+< default}} <div class="container">
+	<div class="jumbotron">
+		{{#if data.events}}
+			{{#each data.events}}
+				<h2> {{title}} </h2>
+				<p> {{{description}}} </p>
+				<hr />
+			{{/each}}
+		{{/if}}
+	</div>
+</div>
