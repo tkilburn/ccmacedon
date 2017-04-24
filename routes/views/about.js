@@ -16,7 +16,8 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 		const q = keystone.list('About').model.find()
 			.where('state', 'published')
-			.populate('author');
+			.populate('author')
+			.sort('sortOrder');
 		q.exec(function (err, results) {
 			locals.data.abouts = results;
 			next(err);
