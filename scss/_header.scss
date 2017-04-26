@@ -1,0 +1,19 @@
+.header__logo-text {
+    color: $white;
+    margin-left: 0.4em;
+}
+
+.header__nav-menu {
+    margin-top: 0.1em;
+}
+
+//USE SOME BTN MIXIN OR CREATE ONE...
+.header__facebook-button {
+    min-width: 2em;
+    background-color: $blue;
+    color: $white;
+}
+
+.header__facebook-button-round {
+    border-radius: 29px;
+}
