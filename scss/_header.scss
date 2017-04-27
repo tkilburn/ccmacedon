@@ -11,7 +11,8 @@
 
     &__nav {
         background-image: $background_brownstone;
-        color: $white; 
+        color: $white;
+        height: 60px;
     }
 
     &__nav-menu {
@@ -21,12 +22,13 @@
 
         a.nav-item {
             color: $white;
-            margin-top: 0.1em;
+            margin-top: 0.5em;
         }
     }
 
     &__nav-toggle {
         color: $white;
+        height: 60px;
         background-image: $background_blackstone;
 
         &.is-active {
@@ -36,6 +38,15 @@
         }
         > span {
             background-color: $white; 
+            // &:nth-child(1) {
+            //     margin-top: -8px;
+            // }
+            // &:nth-child(2) {
+            //     margin-top: -1px;
+            // }
+            // &:nth-child(3) {
+            //     margin-top: 6px;
+            // }
         }
 
         &:hover {
