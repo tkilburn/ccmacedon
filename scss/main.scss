@@ -1,9 +1,13 @@
-@import "_thirdParty";
-@import "_base";
+//Reset
+@import "node_modules/reset-css/_reset";
+
 @import "_color";
+@import "_thirdParty";
+@import "_overwrite";
+@import "_base";
 @import "_font";
 @import "_header";
+@import "_body";
+@import "_footer";
+@import "_teaching";
 
-.foo {
-    color: red;
-}

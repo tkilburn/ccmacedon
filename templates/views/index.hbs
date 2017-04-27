@@ -1,39 +1,27 @@
-{{!
-< default}} <div class="container">
-	<div class="container">
-			<hr />
+{{!< default}}
+{{#if data.announcements}}
+	<h1> Announcements </h1>
+	{{#each data.announcements}}
+		<p> {{title}} : {{description}} </p>
+	{{/each}}
+	<hr />
+{{/if}}
 
-		{{#if data.announcements}}
-			{{#each data.announcements}}
-				<p>
-					{{title}} : {{description}}
-				</p>
-			{{/each}}
+
+{{#if data.ministries}}
+	<h1> Services </h1>
+	{{#each data.ministries}}
+		{{#if homePage}}
+			<p> {{title}} : {{time}} </p>
 		{{/if}}
+	{{/each}}
+	<hr />
+{{/if}}
 
-		<hr />
 
-		{{#if data.ministries}}
-			{{#each data.ministries}}
-				{{#if homePage}}
-					<p>
-						{{title}} : {{time}}
-					</p>
-				{{/if}}
-			{{/each}}
-		{{/if}}
-
-		<hr />
-
-		{{#if data.events}}
-			{{#each data.events}}
-				<p>
-					{{title}} : {{{description}}}
-				</p>
-			{{/each}}
-		{{/if}}
-
-		<hr />
-
-	</div>
-</div>
+{{#if data.events}}
+	<h1> Events </h1>
+	{{#each data.events}}
+		<p> {{title}} : {{{description}}} </p>
+	{{/each}}
+{{/if}}

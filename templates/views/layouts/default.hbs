@@ -2,22 +2,21 @@
 <html>
 	{{>head}}
 	<body>
-		<div id="header">
-				{{>nav}}
-		</div>
-		<div id="body">
-			<section class="section">
-				<div class="container">
-					{{>flashMsg}}
-					{{{body}}}
-				</div>
-			</section>
-		</div>
-		<div class="container">
-			<div id="footer">
-				<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+		<section class="header">
+			{{>nav}}
+		</section>
+
+		<section class="body section">
+			<div class="body__content">
+				{{>flashMsg}}
+				{{{body}}}
 			</div>
-		</div>
+		</section>
+
+		<section class="footer">
+			{{>footer}}
+		</section>
+
 		{{!--<script src="/js/jquery/jquery-1.11.3.min.js"></script>--}}
 		{{{isAdminEditorJS user}}}
 	</body>

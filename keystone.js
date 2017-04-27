@@ -11,8 +11,10 @@ var handlebars = require('express-handlebars');
 // and documentation.
 
 keystone.init({
-	'name': 'ccmacedon',
+	'name': 'Calvary Chapel Macedon',
 	'brand': 'ccmacedon',
+	'facebook': 'https://www.facebook.com/CCMacedon/',
+	'fbname': 'CC Macedon',
 
 	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon',
 

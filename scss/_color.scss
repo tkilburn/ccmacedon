@@ -20,7 +20,7 @@ $flat_silver: #bdc3c7;
 $flat_concrete: #95a5a6;
 $flat_asbestos: #7f8c8d;
 
-//Used Colors
+//Bulma Overwrites
 $primary: $flat_peter-river;
 $info: $flat_amethyst;
 $success: $flat_emerald;
@@ -29,3 +29,11 @@ $danger: $flat_alizarin;
 $dark: $flat_concrete;
 $text: $flat_midnight-blue;
 $white: $flat_clouds;
+
+//Custom Colors
+$color_fb: #3B5998;
+
+//
+$background_blackstone: url("/images/blackstone.jpg");
+$background_brownstone: url("/images/brownstone.jpg");
+$background_palestone: url("/images/palestone.jpg");

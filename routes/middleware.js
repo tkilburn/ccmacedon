@@ -7,6 +7,7 @@
  * you have more middleware you may want to group it as separate
  * modules in your project's /lib directory.
  */
+var keystone = require('keystone');
 var _ = require('lodash');
 
 
@@ -18,6 +19,10 @@ var _ = require('lodash');
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
+	res.locals.sitename = keystone._options.name;
+	res.locals.fbname = keystone._options.fbname;
+	res.locals.facebook = keystone._options.facebook;
+
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'About', key: 'about', href: '/about' },
@@ -25,6 +30,7 @@ exports.initLocals = function (req, res, next) {
 		{ label: 'Events', key: 'events', href: '/events' },
 		{ label: 'Teachings', key: 'teachings', href: '/teachings' },
 	];
+
 	res.locals.user = req.user;
 	next();
 };
