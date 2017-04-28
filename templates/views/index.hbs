@@ -1,8 +1,10 @@
 {{!< default}}
 {{#if data.announcements}}
-	<h1> Announcements </h1>
 	{{#each data.announcements}}
-		<p> {{title}} : {{description}} </p>
+	<div class='{{announcementClass}}'>
+		<h6> {{title}} </h6>
+		<p> {{description}} </p>
+	</div>
 	{{/each}}
 	<hr />
 {{/if}}
