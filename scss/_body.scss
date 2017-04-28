@@ -20,7 +20,11 @@ body {
 
     }
 
-    @media (min-width: $tablet) {
+    @media (min-width: 680px) and (max-width: $desktop - 1) {
+        padding-top: 140px; 
+    }
+
+    @media (min-width: $desktop) {
         padding-top: 120px;
     }
 }

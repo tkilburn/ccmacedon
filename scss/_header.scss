@@ -22,7 +22,27 @@
 
         a.nav-item {
             color: $white;
-            margin-top: 0.5em;
+            @media (min-width: $desktop) {
+                margin-top: 0.5em;
+            }
+        }
+
+        //Tablet Nav
+        @media (min-width: 680px) and (max-width: $desktop - 1) {
+            &#{&} {
+                background-image: $background_blackstone;
+                display: flex;
+                justify-content: space-around;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                > .nav-item {
+                    padding-bottom: 0;
+                    padding-top: 0;
+                    border-style: none;
+                }
+            }
         }
     }
 
@@ -52,6 +72,13 @@
         &:hover {
             color: $white;
             background-color: $black;
+        }
+
+        //Tablet Nav
+        @media (min-width: 680px) and (max-width: $desktop - 1) {
+            &#{&} {
+                display: none;
+            }
         }
     }
     
@@ -84,8 +111,5 @@
         }
         &-full { width: 220px; }
         &-round { border-radius: 29px; }
-        @media (min-width: $tablet) and (min-width: $desktop) {
-            color: red;
-        }
     }
 }
