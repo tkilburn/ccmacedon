@@ -10,39 +10,22 @@
     }
 
     &__nav {
+        border-bottom: 3px solid $text;
         background-image: $background_brownstone;
         color: $white;
         height: 60px;
     }
-
+    &__nav-item-selected {
+        background-color: $primary;
+        opacity: 0.6;
+        filter: Alpha(opacity=60);
+    }
     &__nav-menu {
         &.is-active {
             background-image: $background_blackstone;
         }
-
         a.nav-item {
             color: $white;
-            @media (min-width: $desktop) {
-                margin-top: 0.5em;
-            }
-        }
-
-        //Tablet Nav
-        @media (min-width: 680px) and (max-width: $desktop - 1) {
-            &#{&} {
-                background-image: $background_blackstone;
-                display: flex;
-                justify-content: space-around;
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 100%;
-                > .nav-item {
-                    padding-bottom: 0;
-                    padding-top: 0;
-                    border-style: none;
-                }
-            }
         }
     }
 
@@ -72,13 +55,6 @@
         &:hover {
             color: $white;
             background-color: $black;
-        }
-
-        //Tablet Nav
-        @media (min-width: 680px) and (max-width: $desktop - 1) {
-            &#{&} {
-                display: none;
-            }
         }
     }
     
@@ -111,5 +87,38 @@
         }
         &-full { width: 220px; }
         &-round { border-radius: 29px; }
+    }
+
+    // Media Queries
+    //Tablet with custom breakpoint aimed at content size for nav item
+    @media (min-width: 680px) and (max-width: $desktop - 1) {
+        &__nav-menu {
+            &#{&} {
+                background-image: $background_blackstone;
+                border-bottom: 3px solid $text;
+                display: flex;
+                justify-content: space-around;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                > .nav-item {
+                    padding: 0 1.4em;
+                    border-style: none;
+                }
+            }
+        }
+        &__nav-toggle {
+            &#{&} {
+                display: none;
+            }
+        }
+    }
+    @media (min-width: $desktop) {
+        &__nav-menu {
+            a.nav-item {
+                padding-top: 0.8em;
+            }
+        }
     }
 }

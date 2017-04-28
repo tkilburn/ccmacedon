@@ -16,12 +16,9 @@ body {
     margin: 0 auto;
     max-width: $desktop;
     padding-top: 80px;
-    &__content {
-
-    }
 
     @media (min-width: 680px) and (max-width: $desktop - 1) {
-        padding-top: 140px; 
+        padding-top: 150px; 
     }
 
     @media (min-width: $desktop) {

@@ -19,9 +19,9 @@
 	<div id="main-nav-menu" class="header__nav-menu nav-right nav-menu">
 
 		{{# each navLinks}}
-			{{!--<li {{#ifeq ../section key}}class="active" {{else}}{{/ifeq}}>--}}
-				<a class="nav-item" href="{{ href }}">{{ label }}</a>
-			{{!--</li>--}}
+				<a class="nav-item
+					{{#ifeq ../section key}}header__nav-item-selected{{/ifeq}}
+					" href="{{ href }}">{{ label }}</a>
 		{{/each}}
 
 		<div class="nav-item">
