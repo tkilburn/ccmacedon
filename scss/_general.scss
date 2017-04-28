@@ -29,6 +29,7 @@ p {
 .hide {
     display: none;
 }
+//Mobile
 @media (max-width: $mobile_max - 1) {
     h1,h2,h3,h4,h5,h6 {
         text-align: center;
@@ -36,7 +37,11 @@ p {
     .hide__mobile {
         display: none;
     }
+    .mobile_block {
+        display: block; 
+    }
 }
+//Non Mobile
 @media (min-width: $mobile_max) {
     .hide__desktop {
         display: none;
