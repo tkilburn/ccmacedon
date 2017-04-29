@@ -1,0 +1,14 @@
+.footer {
+  background-image: $background_blackstone;
+  bottom: 0;
+  color: darken($white, 20%);
+  font-family: Arial, Helvetica, sans-serif;
+  left: 0;
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  z-index: -1;
+}

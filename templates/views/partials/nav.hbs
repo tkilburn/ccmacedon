@@ -1,0 +1,52 @@
+<nav class="nav header__nav">
+	<div class="nav-left">
+		<a href="/" class="font__scripty nav-item">
+			<img src="/images/logo.png" alt="Calvary Chapel Macedon logo">
+			<span class="header__logo-text">Calvary Chapel Macedon<span>
+		</a>
+	</div>
+
+	<!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+	<!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+	<span id="main-nav-toggle" class="header__nav-toggle nav-toggle">
+	<span></span>
+	<span></span>
+	<span></span>
+	</span>
+
+	<!-- This "nav-menu" is hidden on mobile -->
+	<!-- Add the modifier "is-active" to display it on mobile -->
+	<div id="main-nav-menu" class="header__nav-menu nav-right nav-menu">
+
+		{{# each navLinks}}
+				<a class="nav-item
+					{{#ifeq ../section key}}header__nav-item-selected{{/ifeq}}
+					" href="{{ href }}">{{ label }}</a>
+		{{/each}}
+
+		<div class="nav-item">
+			<div class="field is-grouped">
+				<p class="control">
+
+					<a href='{{facebook}}' class="header__facebook-button">
+						{{fbname}}
+					</a>
+
+					{{!--<a href='{{facebook}}' class="button header__facebook-button header__facebook-button-full is-hidden-tablet-only">
+						<span class="icon">
+							<i class="fa fa-facebook"></i>
+						</span>
+						<span>{{sitename}}</span>
+					</a>
+					<a href='{{facebook}}' class="button header__facebook-button header__facebook-button-round
+						is-hidden-mobile is-hidden-desktop-only is-hidden-widescreen
+					">
+						<span class="icon">
+							<i class="fa fa-facebook"></i>
+						</span>
+					</a>--}}
+				</p>
+			</div>
+		</div>
+	</div>
+</nav>

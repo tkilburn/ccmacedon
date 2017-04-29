@@ -47,6 +47,8 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
+	console.log('DEBUG::locals:', locals);
+
 	// Render the view
 	view.render('index');
 };

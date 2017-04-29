@@ -33,9 +33,7 @@ var routes = {
 
 
 const getAudioTeaching = function () {
-
 	var fs = require('fs');
-
 	var file = fs.readFile('./data/file/SoundHelix-Song-1.mp3', 'binary');
 	// var file = fs.readFileSync('../data/file/tmp.txt', 'binary');
 	// var file = fs.readFileSync('./npm-debug.log', 'binary');
@@ -50,6 +48,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/about', routes.views.about);
+	app.get('/about/:aboutKey', routes.views.about);
 	app.get('/ministries', routes.views.ministry);
 	app.get('/events', routes.views.event);
 	app.get('/teachings', routes.views.teachingCategory);

@@ -61,42 +61,34 @@
       .errorZ .error-messageZ { display: block; }
     </style>
 
-{{!
-< default}} <div class="container">
-
-	<div class="jumbotron">
-		<h2>
-			<a href="/teachings">{{data.teachings.books.categories.name}}</a>
-			> <a href="/teachings/{{data.teachings.books.key}}">{{data.teachings.books.name}}</a>
-		</h2>
-			<p>
-				{{data.teachings.title}} | {{data.teachings.key}}
-			</p>
-			{{#if data.teachings.teachingUpload.filename}}
-
-				<p>
-					<div class="audiojsZ">
-						<audio id="teaching__audio-player" src="/{{data.teachings.teachingUpload.filename}}" preload="auto"></audio>
-						<div class="play-pauseZ">
-							<p class="playZ"></p>
-							<p class="pauseZ"></p>
-							<p class="loadingZ"></p>
-							<p class="errorZ"></p>
-						</div>
-						<div class="scrubberZ">
-							<div class="progressZ"></div>
-							<div class="loadedZ"></div>
-						</div>
-						<div class="timeZ">
-							<em class="playedZ">00:00</em>/<strong class="durationZ">00:00</strong>
-						</div>
-						<div class="error-messageZ"></div>
-					</div>
-				</p>
-			{{else}}
-				<p>No teaching has been uploaded.</p>
-			{{/if}}
-
-		<hr />
-	</div>
-</div>
+{{!< default}}
+<h2><a href="/teachings">{{data.teachings.books.categories.name}}</a></h2>
+<h3><a href="/teachings/{{data.teachings.books.key}}">{{data.teachings.books.name}}</a></h3>
+<hr />
+<p>
+	Some teaching info here...<br/>
+	{{data.teachings.title}} | {{data.teachings.key}}
+</p>
+{{#if data.teachings.teachingUpload.filename}}
+	<p>
+		<div class="audiojsZ">
+			<audio id="teaching__audio-player" src="/{{data.teachings.teachingUpload.filename}}" preload="auto"></audio>
+			<div class="play-pauseZ">
+				<p class="playZ"></p>
+				<p class="pauseZ"></p>
+				<p class="loadingZ"></p>
+				<p class="errorZ"></p>
+			</div>
+			<div class="scrubberZ">
+				<div class="progressZ"></div>
+				<div class="loadedZ"></div>
+			</div>
+			<div class="timeZ">
+				<em class="playedZ">00:00</em>/<strong class="durationZ">00:00</strong>
+			</div>
+			<div class="error-messageZ"></div>
+		</div>
+	</p>
+{{else}}
+	<p>No teaching has been uploaded.</p>
+{{/if}}

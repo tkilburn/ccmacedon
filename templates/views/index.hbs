@@ -1,39 +1,30 @@
-{{!
-< default}} <div class="container">
-	<div class="jumbotron">
-			<hr />
-
-		{{#if data.announcements}}
-			{{#each data.announcements}}
-				<p>
-					{{title}} : {{description}}
-				</p>
-			{{/each}}
-		{{/if}}
-
-		<hr />
-
-		{{#if data.ministries}}
-			{{#each data.ministries}}
-				{{#if homePage}}
-					<p>
-						{{title}} : {{time}}
-					</p>
-				{{/if}}
-			{{/each}}
-		{{/if}}
-
-		<hr />
-
-		{{#if data.events}}
-			{{#each data.events}}
-				<p>
-					{{title}} : {{{description}}}
-				</p>
-			{{/each}}
-		{{/if}}
-
-		<hr />
-
+{{!< default}}
+{{#if data.announcements}}
+	<h1 class="hide__mobile"> Announcements </h1>
+	{{#each data.announcements}}
+	<div class='{{announcementClass}}'>
+		<h6> {{title}} </h6>
+		<p> {{description}} </p>
 	</div>
-</div>
+	{{/each}}
+	<hr />
+{{/if}}
+
+
+{{#if data.ministries}}
+	<h1> Services </h1>
+	{{#each data.ministries}}
+		{{#if homePage}}
+			<p> <span class="mobile_block">{{title}} :</span> {{time}} </p>
+		{{/if}}
+	{{/each}}
+	<hr />
+{{/if}}
+
+
+{{#if data.events}}
+	<h1> Events </h1>
+	{{#each data.events}}
+		<p> {{title}} : {{{description}}} </p>
+	{{/each}}
+{{/if}}

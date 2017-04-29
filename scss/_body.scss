@@ -1,0 +1,27 @@
+html {
+    background-image: $background_palestone;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.body {
+    background-color: transparent;
+    margin: 0 auto;
+    max-width: $desktop;
+    padding-top: 80px;
+
+    @media (min-width: 680px) and (max-width: $desktop - 1) {
+        padding-top: 150px; 
+    }
+
+    @media (min-width: $desktop) {
+        padding-top: 120px;
+    }
+}

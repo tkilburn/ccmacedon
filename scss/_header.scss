@@ -1,0 +1,124 @@
+.header {
+    bottom: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    &__logo-text {
+        color: $white;
+        margin-left: 0.4em;
+    }
+
+    &__nav {
+        border-bottom: 3px solid $text;
+        background-image: $background_brownstone;
+        color: $white;
+        height: 60px;
+    }
+    &__nav-item-selected {
+        background-color: $primary;
+        opacity: 0.6;
+        filter: Alpha(opacity=60);
+    }
+    &__nav-menu {
+        &.is-active {
+            background-image: $background_blackstone;
+        }
+        a.nav-item {
+            color: $white;
+        }
+    }
+
+    &__nav-toggle {
+        color: $white;
+        height: 60px;
+        background-image: $background_blackstone;
+
+        &.is-active {
+            > span {
+                background-color: $white; 
+            }
+        }
+        > span {
+            background-color: $white; 
+            // &:nth-child(1) {
+            //     margin-top: -8px;
+            // }
+            // &:nth-child(2) {
+            //     margin-top: -1px;
+            // }
+            // &:nth-child(3) {
+            //     margin-top: 6px;
+            // }
+        }
+
+        &:hover {
+            color: $white;
+            background-color: $black;
+        }
+    }
+    
+    //USE SOME BTN MIXIN OR CREATE ONE...
+    //DO WE HAVE BREAK POINTS WE CAN USE FROM BULMA?
+    &__facebook-button {
+        @extend .button;
+        // min-width: 2em;
+        &#{&} {
+            background-color: $color_fb;
+            border-color: darken($color_fb, 2%);
+            color: $white;
+            width: 140px;
+            &::before   {
+                font-family: FontAwesome;
+                padding-right: 0.6em;
+                width: 1.2em;
+                content: "\f09a";
+            }
+            &:active {
+                background-color: darken($color_fb, 6%);
+                border-color: darken($color_fb, 8%);
+                color: darken($white, 6%);
+            }
+            &:hover {
+                background-color: darken($color_fb, 2%);
+                border-color: darken($color_fb, 4%);
+                color: darken($white, 2%);
+            }
+        }
+        &-full { width: 220px; }
+        &-round { border-radius: 29px; }
+    }
+
+    // Media Queries
+    //Tablet with custom breakpoint aimed at content size for nav item
+    @media (min-width: 680px) and (max-width: $desktop - 1) {
+        &__nav-menu {
+            &#{&} {
+                background-image: $background_blackstone;
+                border-bottom: 3px solid $text;
+                display: flex;
+                justify-content: space-around;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                > .nav-item {
+                    padding: 0 1.4em;
+                    border-style: none;
+                }
+            }
+        }
+        &__nav-toggle {
+            &#{&} {
+                display: none;
+            }
+        }
+    }
+    @media (min-width: $desktop) {
+        &__nav-menu {
+            a.nav-item {
+                padding-top: 0.8em;
+            }
+        }
+    }
+}

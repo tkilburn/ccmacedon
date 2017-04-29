@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var About = new keystone.List('About', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true },
+	autokey: { path: 'key', from: 'title', unique: true },
 	sortable: true,
 });
 

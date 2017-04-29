@@ -1,0 +1,50 @@
+$mobile_max: 500px;
+
+body {
+    color: $text;
+    font-family: 'Vollkorn', serif;
+    font-weight: 100;
+    line-height: 1.4rem;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+h2 {
+    font-size: 1.6em;
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: 1.4em;
+    line-height: 1.5em;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+.hide {
+    display: none;
+}
+//Mobile
+@media (max-width: $mobile_max - 1) {
+    h1,h2,h3,h4,h5,h6 {
+        text-align: center;
+    }
+    .hide__mobile {
+        display: none;
+    }
+    .mobile_block {
+        display: block; 
+    }
+}
+//Non Mobile
+@media (min-width: $mobile_max) {
+    .hide__desktop {
+        display: none;
+    }
+}
+
