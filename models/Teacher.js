@@ -7,7 +7,6 @@ var keystone = require('keystone');
 
 var Teacher = new keystone.List('Teacher', {
 	autokey: { path: 'slug', from: 'name', unique: true },
-	sortable: true,
 });
 
 Teacher.add({

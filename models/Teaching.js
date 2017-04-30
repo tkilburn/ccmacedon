@@ -26,10 +26,10 @@ Teaching.add({
 	title: { type: String, required: true },
 	code: { type: String },
 	books: { type: Types.Relationship, ref: 'TeachingBook', index: true },
-	teacher: { type: Types.Relationship, ref: 'Teacher', index: true },
+	teachers: { type: Types.Relationship, ref: 'Teacher', index: true },
 	currentSunTeaching: { type: Types.Boolean },
 	currentWedTeaching: { type: Types.Boolean },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	date: { type: Types.Date, index: true },
 	teachingUpload: { type: Types.File, storage: myStorage },
 });
 
@@ -41,7 +41,7 @@ Teaching.schema.virtual('content.full').get(() => {
 const resetSunTeaching = (teachingToKeep) => {
 	keystone.list('Teaching').model
 	.update(
-		{ _id: { $ne: teachingToKeep._id }, currentSunTeaching: true, state: 'published' },
+		{ _id: { $ne: teachingToKeep._id }, currentSunTeaching: true },
 		{ $set: { currentSunTeaching: false } },
 		{ multi: true }
 	).exec();
@@ -50,7 +50,7 @@ const resetSunTeaching = (teachingToKeep) => {
 const resetWedTeaching = (teachingToKeep) => {
 	keystone.list('Teaching').model
 	.update(
-		{ _id: { $ne: this._id }, currentWedTeaching: true, state: 'published' },
+		{ _id: { $ne: teachingToKeep._id }, currentWedTeaching: true },
 		{ $set: { currentWedTeaching: false } },
 		{ multi: true }
 	).exec();
