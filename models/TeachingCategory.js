@@ -6,7 +6,7 @@ var keystone = require('keystone');
  */
 
 var TeachingCategory = new keystone.List('TeachingCategory', {
-	autokey: { from: 'name', path: 'key', unique: true },
+	autokey: { path: 'slug', from: 'name', unique: true },
 	sortable: true,
 });
 

@@ -29,7 +29,7 @@ exports = module.exports = function (req, res) {
 			{ $group: {
 				_id: '$_id',
 				name: { $first: '$name' },
-				key: { $first: '$key' },
+				slug: { $first: '$slug' },
 				sortOrder: { $first: '$sortOrder' },
 				books: { $push: '$books' },
 			} },

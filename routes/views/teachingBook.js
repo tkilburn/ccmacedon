@@ -9,7 +9,7 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'teachings';
 	locals.filters = {
-		bookKey: req.params.bookKey,
+		bookSlug: req.params.bookSlug,
 	};
 	locals.data = {
 		teachings: [],
@@ -18,7 +18,7 @@ exports = module.exports = function (req, res) {
 	// Load Book and Teachings
 	view.on('init', function (next) {
 		const q = keystone.list('TeachingBook').model.aggregate([
-			{ $match: { key: locals.filters.bookKey } },
+			{ $match: { slug: locals.filters.bookSlug } },
 			{
 				$lookup:
 				{
@@ -42,7 +42,7 @@ exports = module.exports = function (req, res) {
 			{ $sort: { 'teachings.sortOrder': 1 } },
 			{ $group: {
 				_id: '$_id',
-				key: { $first: '$key' },
+				slug: { $first: '$slug' },
 				name: { $first: '$name' },
 				category: { $first: '$categories.name' },
 				sortOrder: { $first: '$sortOrder' },

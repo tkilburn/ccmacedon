@@ -8,7 +8,7 @@ var Types = keystone.Field.Types;
 
 var About = new keystone.List('About', {
 	map: { name: 'title' },
-	autokey: { path: 'key', from: 'title', unique: true },
+	autokey: { path: 'slug', from: 'title', unique: true },
 	sortable: true,
 });
 
@@ -16,7 +16,7 @@ About.add({
 	title: { type: String, required: true },
 	description: { type: Types.Html, wysiwyg: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'Y', index: true },
+	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 });
 

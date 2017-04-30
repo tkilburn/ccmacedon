@@ -9,11 +9,11 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'about';
 	locals.filters = {
-		aboutKey: req.params.aboutKey,
+		aboutSlug: req.params.aboutSlug,
 	};
 	locals.data = {
 		abouts: [],
-		isMain: req.params.aboutKey ? false : true,
+		isMain: req.params.aboutSlug ? false : true,
 	};
 
 	// Load Abouts
@@ -22,7 +22,7 @@ exports = module.exports = function (req, res) {
 			.where('state', 'published')
 			.populate('author')
 			.sort('sortOrder');
-		if (req.params.aboutKey) { q.where('key', locals.filters.aboutKey); }
+		if (req.params.aboutSlug) { q.where('slug', locals.filters.aboutSlug); }
 		q.exec(function (err, results) {
 			locals.data.abouts = results;
 			next(err);

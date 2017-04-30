@@ -48,12 +48,12 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/about', routes.views.about);
-	app.get('/about/:aboutKey', routes.views.about);
+	app.get('/about/:aboutSlug', routes.views.about);
 	app.get('/ministries', routes.views.ministry);
 	app.get('/events', routes.views.event);
 	app.get('/teachings', routes.views.teachingCategory);
-	app.get('/teachings/:bookKey', routes.views.teachingBook);
-	app.get('/teachings/:bookKey/:lessonKey', routes.views.teaching);
+	app.get('/teachings/:bookSlug', routes.views.teachingBook);
+	app.get('/teachings/:bookSlug/:lessonSlug', routes.views.teaching);
 
 	app.get('/teachingaudio', getAudioTeaching);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

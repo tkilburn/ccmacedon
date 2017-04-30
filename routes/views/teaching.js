@@ -9,8 +9,8 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'teachings';
 	locals.filters = {
-		bookKey: req.params.bookKey,
-		lessonKey: req.params.lessonKey,
+		bookSlug: req.params.bookSlug,
+		lessonSlug: req.params.lessonSlug,
 	};
 	locals.data = {
 		teachings: [],
@@ -21,7 +21,7 @@ exports = module.exports = function (req, res) {
 	// Load Book and Teachings
 	view.on('init', function (next) {
 		const q = keystone.list('Teaching').model.findOne()
-			.where('key', locals.filters.lessonKey)
+			.where('slug', locals.filters.lessonSlug)
 			.populate({ path: 'books', populate: { path: 'categories' } });
 		q.exec(function (err, results) {
 			locals.data.teachings = results;

@@ -19,7 +19,7 @@ Ministry.add({
 	homePage: { type: Types.Boolean },
 	ministryPage: { type: Types.Boolean },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'Y', index: true },
+	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 });
 

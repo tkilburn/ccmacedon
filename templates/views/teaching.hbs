@@ -63,11 +63,11 @@
 
 {{!< default}}
 <h2><a href="/teachings">{{data.teachings.books.categories.name}}</a></h2>
-<h3><a href="/teachings/{{data.teachings.books.key}}">{{data.teachings.books.name}}</a></h3>
+<h3><a href="/teachings/{{data.teachings.books.slug}}">{{data.teachings.books.name}}</a></h3>
 <hr />
 <p>
 	Some teaching info here...<br/>
-	{{data.teachings.title}} | {{data.teachings.key}}
+	{{data.teachings.title}} | {{data.teachings.slug}}
 </p>
 {{#if data.teachings.teachingUpload.filename}}
 	<p>

@@ -16,7 +16,7 @@ keystone.init({
 	'facebook': 'https://www.facebook.com/CCMacedon/',
 	'fbname': 'CC Macedon',
 
-	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon',
+	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon-dev',
 
 	'sass': 'public',
 	'static': ['public', 'data/file'],
@@ -37,7 +37,7 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'Y',
+	'user model': 'User',
 });
 
 // Load your project's Models
@@ -56,11 +56,10 @@ keystone.set('locals', {
 // Load your project's Routes
 keystone.set('routes', require('./routes'));
 
-
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	announcements: ['announcements'],
-	teachings: ['teachings', 'teaching-books', 'teaching-categories'],
+	teachings: ['teachings', 'teaching-books', 'teaching-categories', 'teachers'],
 	events: ['events'],
 	ministries: ['ministries'],
 	abouts: ['abouts'],
