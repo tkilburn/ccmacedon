@@ -4,8 +4,15 @@
 		<h2><a href="/teachings">{{category}}</a></h2>
 		<h3>{{name}}</h3>
 		<hr />
-		{{#each teachings}}
-			<div><a class="teaching__link" href="/teachings/{{../slug}}/{{slug}}">{{title}}</a></div>
-		{{/each}}
+		<div class="teaching__container">
+			{{#each teachings}}
+				<div class="teaching__column">
+					<a class="teaching__link" href="/teachings/{{../slug}}/{{slug}}">
+						{{title}}
+					</a>
+				</div>
+			{{/each}}
+			<div class="teaching__column"></div>{{!--Needed for spacing orphen grid items--}}
+		</div>
 	{{/each}}
 {{/if}}

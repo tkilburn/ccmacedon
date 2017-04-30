@@ -2,8 +2,15 @@
 {{#each data.teachingCategories}}
 	<h2> {{name}} </h2>
 	<p> {{{description}}} </p>
-	{{#each books}}
-		<div><a class="teaching__link" href=/teachings/{{slug}}>{{name}}</a></div>
-	{{/each}}
+
+	<div class="teaching__container">
+		{{#each books}}
+			<div class="teaching__column">
+				<a class="teaching__link" href=/teachings/{{slug}}>{{name}}</a>
+			</div>
+		{{/each}}
+		<div class="teaching__column"></div>{{!--Needed for spacing orphen grid items--}}
+	</div>
+
 	{{#if @last}} {{else}} <hr /> {{/if}}
 {{/each}}

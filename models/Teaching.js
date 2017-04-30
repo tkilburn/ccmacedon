@@ -27,10 +27,10 @@ Teaching.add({
 	code: { type: String },
 	books: { type: Types.Relationship, ref: 'TeachingBook', index: true },
 	teachers: { type: Types.Relationship, ref: 'Teacher', index: true },
-	currentSunTeaching: { type: Types.Boolean },
-	currentWedTeaching: { type: Types.Boolean },
 	date: { type: Types.Date, index: true },
 	teachingUpload: { type: Types.File, storage: myStorage },
+	currentSunTeaching: { type: Types.Boolean },
+	currentWedTeaching: { type: Types.Boolean },
 });
 
 Teaching.schema.virtual('content.full').get(() => {

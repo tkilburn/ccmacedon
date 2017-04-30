@@ -91,7 +91,7 @@
 
     // Media Queries
     //Tablet with custom breakpoint aimed at content size for nav item
-    @media (min-width: 680px) and (max-width: $desktop - 1) {
+    @media (min-width: $tablet) and (max-width: $desktop - 1) {
         &__nav-menu {
             &#{&} {
                 background-image: $background_blackstone;

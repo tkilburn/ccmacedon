@@ -23,6 +23,7 @@ exports = module.exports = function (req, res) {
 		const q = keystone.list('Teaching').model.findOne()
 			.where('slug', locals.filters.lessonSlug)
 			.sort({ date: 1 })
+			.populate({ path: 'teachers' })
 			.populate({ path: 'books', populate: { path: 'categories' } });
 		q.exec(function (err, results) {
 			locals.data.teachings = results;

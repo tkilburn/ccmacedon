@@ -1,81 +1,81 @@
-<script src="/js/audiojs/audio.min.js"></script>
+<script defer src="/js/audiojs/audio.min.js"></script>
 
 <style>
-    .audiojsZ audio { position: absolute; left: -1px; }
-    .audiojsZ { width: 460px; height: 36px; background: #f00; overflow: hidden; font-family: monospace; font-size: 12px;
-    -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    .audio-player__audiojs audio { position: absolute; left: -1px; }
+    .audio-player__audiojs { width: 460px; height: 36px; background: #f00; overflow: hidden; font-family: monospace; font-audio-player__sie: 12px;
+    -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -audio-player__mo-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
     -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); }
-    .audiojsZ .play-pauseZ { width: 25px; height: 40px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-right: 1px solid #c00; }
-    .audiojsZ p { display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer; }
-    .audiojsZ .playZ { display: block; }
-    .audiojsZ .scrubberZ { position: relative; float: left; width: 280px; background: #fcc; height: 14px; margin: 10px; border-left: 0px; border-bottom: 0px; overflow: hidden; }
-    .audiojsZ .progressZ { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #600; z-index: 1; }
-    .audiojsZ .loadedZ { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #c00; }
-    .audiojsZ .timeZ { float: left; height: 36px; line-height: 36px; margin: 0px 0px 0px 6px; padding: 0px 6px 0px 12px; border-left: 1px solid #c00; color: #600; text-shadow: 1px 1px 0px rgba(125, 0, 0, 0.5); }
-    .audiojsZ .timeZ em { padding: 0px 2px 0px 0px; color: #fcc; font-style: normal; }
-    .audiojsZ .timeZ strong { padding: 0px 0px 0px 2px; font-weight: normal; }
-    .audiojsZ .error-messageZ { float: left; display: none; margin: 0px 10px; height: 36px; width: 400px; overflow: hidden; line-height: 36px; white-space: nowrap; color: #fff;
-    text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }
-    .audiojsZ .error-messageZ a { color: #eee; text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid #999; white-space: wrap; }
+    .audio-player__audiojs .audio-player__play-pause { width: 25px; height: 40px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-right: 1px solid #c00; }
+    .audio-player__audiojs p { display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer; }
+    .audio-player__audiojs .audio-player__play { display: block; }
+    .audio-player__audiojs .audio-player__scrubber { position: relative; float: left; width: 280px; background: #fcc; height: 14px; margin: 10px; border-left: 0px; border-bottom: 0px; overflow: hidden; }
+    .audio-player__audiojs .audio-player__progress { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #600audio-player__; -index: 1; }
+    .audio-player__audiojs .audio-player__loaded { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #c00; }
+    .audio-player__audiojs .audio-player__time { float: left; height: 36px; line-height: 36px; margin: 0px 0px 0px 6px; padding: 0px 6px 0px 12px; border-left: 1px solid #c00; color: #600; text-shadow: 1px 1px 0px rgba(125, 0, 0, 0.5); }
+    .audio-player__audiojs .audio-player__time em { padding: 0px 2px 0px 0px; color: #fcc; font-style: normal; }
+    .audio-player__audiojs .audio-player__time strong { padding: 0px 0px 0px 2px; font-weight: normal; }
+    .audio-player__audiojs .audio-player__error-message { float: left; display: none; margin: 0px 10px; height: 36px; width: 400px; overflow: hidden; line-height: 36px; white-space: nowrap; color: #fff;
+    text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -audio-player__mo-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }
+    .audio-player__audiojs .audio-player__error-message a { color: #eee; text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid #999; white-space: wrap; }
 
-    .audiojsZ .playZ { background: url('../audiojs/player-graphics.gif') -2px -1px no-repeat; }
-    .audiojsZ .loadingZ { background: url('../audiojs/player-graphics.gif') -2px -31px no-repeat; }
-    .audiojsZ .errorZ { background: url('../audiojs/player-graphics.gif') -2px -61px no-repeat; }
-    .audiojsZ .pauseZ { background: url('../audiojs/player-graphics.gif') -2px -91px no-repeat; }
+    .audio-player__audiojs .audio-player__play { background: url('../audiojs/player-graphics.gif') -2px -1px no-repeat; }
+    .audio-player__audiojs .audio-player__loading { background: url('../audiojs/player-graphics.gif') -2px -31px no-repeat; }
+    .audio-player__audiojs .audio-player__error { background: url('../audiojs/player-graphics.gif') -2px -61px no-repeat; }
+    .audio-player__audiojs .audio-player__pause { background: url('../audiojs/player-graphics.gif') -2px -91px no-repeat; }
 
-    .playingZ .playZ, .playingZ .loadingZ, .playingZ .errorZ { display: none; }
-    .playingZ .pauseZ { display: block; }
+    .audio-player__playing .audio-player__play, .audio-player__playing .audio-player__loading, .audio-player__playing .audio-player__error { display: none; }
+    .audio-player__playing .audio-player__pause { display: block; }
 
-    .loadingZ .playZ, .loadingZ .pauseZ, .loadingZ .errorZ { display: none; }
-    .loadingZ .loadingZ { display: block; }
+    .audio-player__loading .audio-player__play, .audio-player__loading .audio-player__pause, .audio-player__loading .audio-player__error { display: none; }
+    .audio-player__loading .audio-player__loading { display: block; }
 
-    .errorZ .timeZ, .errorZ .playZ, .errorZ .pauseZ, .errorZ .scrubberZ, .errorZ .loadingZ { display: none; }
-    .errorZ .errorZ { display: block; }
-    .errorZ .play-pauseZ p { cursor: auto; }
-    .errorZ .error-messageZ { display: block; }
+    .audio-player__error .audio-player__time, .audio-player__error .audio-player__play, .audio-player__error .audio-player__pause, .audio-player__error .audio-player__scrubber, .audio-player__error .audio-player__loading { display: none; }
+    .audio-player__error .audio-player__error { display: block; }
+    .audio-player__error .audio-player__play-pause p { cursor: auto; }
+    .audio-player__error .audio-player__error-message { display: block; }
 </style>
 
 
-<div class="audiojsZ">
+<div class="audio-player__audiojs">
     <audio id="teaching__audio-player" src="/{{data.teachings.teachingUpload.filename}}" preload="auto"></audio>
-    <div class="play-pauseZ">
-        <p class="playZ"></p>
-        <p class="pauseZ"></p>
-        <p class="loadingZ"></p>
-        <p class="errorZ"></p>
+    <div class="audio-player__play-pause">
+        <p class="audio-player__play"></p>
+        <p class="audio-player__pause"></p>
+        <p class="audio-player__loading"></p>
+        <p class="audio-player__error"></p>
     </div>
-    <div class="scrubberZ">
-        <div class="progressZ"></div>
-        <div class="loadedZ"></div>
+    <div class="audio-player__scrubber">
+        <div class="audio-player__progress"></div>
+        <div class="audio-player__loaded"></div>
     </div>
-    <div class="timeZ">
-        <em class="playedZ">00:00</em>/<strong class="durationZ">00:00</strong>
+    <div class="audio-player__time">
+        <em class="audio-player__played">00:00</em>/<strong class="audio-player__duration">00:00</strong>
     </div>
-    <div class="error-messageZ"></div>
+    <div class="audio-player__error-message"></div>
 </div>
 
 
 <script>
-	audiojs.events.ready(function() {
-		var player = document.getElementById('teaching__audio-player');
-		var a1 = audiojs.create(player
-		{{!--,{
-			css: false,
-			createPlayer: {
-				markup: false,
-				playPauseClass: 'play-pauseZ',
-				scrubberClass: 'scrubberZ',
-				progressClass: 'progressZ',
-				loaderClass: 'loadedZ',
-				timeClass: 'timeZ',
-				durationClass: 'durationZ',
-				playedClass: 'playedZ',
-				errorMessageClass: 'error-messageZ',
-				playingClass: 'playingZ',
-				loadingClass: 'loadingZ',
-				errorClass: 'errorZ'
-			}
-		}--}}
-		);
-	});
+    document.addEventListener("DOMContentLoaded", function(){
+        var player = document.getElementById('teaching__audio-player');
+        var a1 = audiojs.create(player
+        {{!--,{
+            css: false,
+            createPlayer: {
+                markup: false,
+                playPauseClass: 'audio-player__play-pause',
+                scrubberClass: 'audio-player__scrubber',
+                progressClass: 'audio-player__progress',
+                loaderClass: 'audio-player__loaded',
+                timeClass: 'audio-player__time',
+                durationClass: 'audio-player__duration',
+                playedClass: 'audio-player__played',
+                errorMessageClass: 'audio-player__error-message',
+                playingClass: 'audio-player__playing',
+                loadingClass: 'audio-player__loading',
+                errorClass: 'audio-player__error'
+            }
+        }--}}
+        );
+    });
 </script>

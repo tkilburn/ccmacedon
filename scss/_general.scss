@@ -1,5 +1,8 @@
-$mobile_max: 500px;
+// Breakpoints
+$phablet: 500px;
+$tablet: 680px;
 
+// Attributes
 body {
     color: $text;
     font-family: 'Vollkorn', serif;
@@ -30,7 +33,7 @@ p {
     display: none;
 }
 //Mobile
-@media (max-width: $mobile_max - 1) {
+@media (max-width: $phablet - 1) {
     h1,h2,h3,h4,h5,h6 {
         text-align: center;
     }
@@ -42,7 +45,7 @@ p {
     }
 }
 //Non Mobile
-@media (min-width: $mobile_max) {
+@media (min-width: $phablet) {
     .hide__desktop {
         display: none;
     }
