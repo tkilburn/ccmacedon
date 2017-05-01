@@ -20,7 +20,7 @@ keystone.init({
 	'sass': 'public',
 	'static': [
 		path.join('..', 'public'),
-		path.join('..', '..', 'file')
+		path.join('..', '..', 'data', 'file')
 	],
 	'favicon': path.join('..', 'public', 'favicon.ico'),
 	'views': path.join('templates', 'views'),
