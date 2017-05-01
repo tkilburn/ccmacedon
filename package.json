@@ -31,7 +31,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node src/server/keystone.js",
-    "build-css": "node-sass --include-path scss src/scss/main.scss src/public/css/main.min.css --output-style compressed",
+    "build-css": "node-sass --include-path scss src/scss/main.scss src/client/css/main.min.css --output-style compressed",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   }
 }

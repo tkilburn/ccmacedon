@@ -17,12 +17,12 @@ keystone.init({
 	'fbname': 'CC Macedon',
 
 	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon-dev',
-	'sass': 'public',
+	'sass': 'client',
 	'static': [
-		path.join('..', 'public'),
+		path.join('..', 'client'),
 		path.join('..', '..', 'data', 'file')
 	],
-	'favicon': path.join('..', 'public', 'favicon.ico'),
+	'favicon': path.join('..', 'client', 'favicon.ico'),
 	'views': path.join('templates', 'views'),
 	'view engine': '.hbs',
 
