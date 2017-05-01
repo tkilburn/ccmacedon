@@ -1,6 +1,7 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').config();
+const path = require('path');
 
 // Require keystone
 var keystone = require('keystone');
@@ -9,7 +10,6 @@ var handlebars = require('express-handlebars');
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
-
 keystone.init({
 	'name': 'Calvary Chapel Macedon',
 	'brand': 'ccmacedon',
@@ -17,22 +17,24 @@ keystone.init({
 	'fbname': 'CC Macedon',
 
 	'mongo': process.env.MONGO_URI || 'localhost/ccmacedon-dev',
-
 	'sass': 'public',
-	'static': ['public', 'data/file'],
-	'favicon': 'public/favicon.ico',
-	'views': 'templates/views',
+	'static': [
+		path.join('..', 'public'),
+		path.join('..', '..', 'file')
+	],
+	'favicon': path.join('..', 'public', 'favicon.ico'),
+	'views': path.join('templates', 'views'),
 	'view engine': '.hbs',
 
 	'custom engine': handlebars.create({
-		layoutsDir: 'templates/views/layouts',
-		partialsDir: 'templates/views/partials',
+		layoutsDir: path.join(__dirname, 'templates', 'views', 'layouts'),
+		partialsDir: path.join(__dirname, 'templates', 'views', 'partials'),
 		defaultLayout: 'default',
 		helpers: new require('./templates/views/helpers')(),
 		extname: '.hbs',
 	}).engine,
 
-	'emails': 'templates/emails',
+	'emails': '',
 
 	'auto update': true,
 	'session': true,
