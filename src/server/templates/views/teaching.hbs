@@ -5,7 +5,9 @@
 
 <h3> Teaching: {{data.teachings.title}} </h3>
 <h3> {{data.teachings.code}} </h3>
-<h3> Teacher: {{data.teachings.teachers.name}} </h3>
+{{#if data.teachings.teachers.name}}
+	<h3> Teacher: {{data.teachings.teachers.name}} </h3>
+{{/if}}
 
 <div class="teaching__player-container">
 	{{#if data.teachings.teachingUpload.filename}}
