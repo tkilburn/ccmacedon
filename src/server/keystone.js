@@ -20,7 +20,7 @@ keystone.init({
 	'sass': 'client',
 	'static': [
 		path.join('..', 'client'),
-		path.join('..', '..', 'data', 'file')
+		path.join('..', '..', 'data', 'file'),
 	],
 	'favicon': path.join('..', 'client', 'favicon.ico'),
 	'views': path.join('templates', 'views'),
@@ -50,9 +50,10 @@ keystone.import('models');
 // for each request) should be added to ./routes/middleware.js
 keystone.set('locals', {
 	_: require('lodash'),
+	editable: keystone.content.editable,
+	port: process.env.PORT || 3000,
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable,
 });
 
 // Load your project's Routes
