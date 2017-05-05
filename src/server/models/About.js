@@ -14,15 +14,12 @@ var About = new keystone.List('About', {
 
 About.add({
 	title: { type: String, required: true },
-	description: { type: Types.Html, wysiwyg: true },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
+	description: { type: Types.Html, wysiwyg: true }
 });
 
 About.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-About.defaultColumns = 'title|10%, state|20%, author|20%, publishedDate|20%';
+About.defaultColumns = 'title';
 About.register();

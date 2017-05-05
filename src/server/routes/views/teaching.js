@@ -22,9 +22,9 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 		const q = keystone.list('Teaching').model.findOne()
 			.where('slug', locals.filters.lessonSlug)
-			.sort({ date: 1 })
 			.populate({ path: 'teachers' })
-			.populate({ path: 'books', populate: { path: 'categories' } });
+			.populate({ path: 'books', populate: { path: 'categories' } })
+			.sort('date');
 		q.exec(function (err, results) {
 			locals.data.teachings = results;
 			next(err);

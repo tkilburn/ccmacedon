@@ -14,6 +14,6 @@ TeachingCategory.add({
 	name: { type: String, required: true },
 });
 
-TeachingCategory.relationship({ ref: 'Teaching', path: 'teachings', refPath: 'categories' });
+TeachingCategory.relationship({ ref: 'TeachingBook', path: 'teachingbooks', refPath: 'categories' });
 
 TeachingCategory.register();

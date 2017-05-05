@@ -15,8 +15,8 @@ exports = module.exports = function (req, res) {
 	// Load Ministries
 	view.on('init', function (next) {
 		const q = keystone.list('Ministry').model.find()
-			.where('state', 'published')
-			.populate('author');
+			.where('ministryPage', 'true')
+			.sort('sortOrder');
 		q.exec(function (err, results) {
 			locals.data.ministries = results;
 			next(err);

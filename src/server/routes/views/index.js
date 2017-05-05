@@ -12,13 +12,14 @@ exports = module.exports = function (req, res) {
 		announcements: [],
 		ministries: [],
 		events: [],
+		sunTeaching: [],
+		wedTeaching: [],
 	};
 
 	// Load Announcements
 	view.on('init', function (next) {
 		var q = keystone.list('Announcement').model.find()
-			.where('state', 'published')
-			.populate('author');
+			.sort({ important: -1, sortOrder: 1 });
 		q.exec(function (err, results) {
 			locals.data.announcements = results;
 			next(err);
@@ -28,8 +29,8 @@ exports = module.exports = function (req, res) {
 	// Load Ministries
 	view.on('init', function (next) {
 		var q = keystone.list('Ministry').model.find()
-			.where('state', 'published')
-			.populate('author');
+			.where('homePage', 'true')
+			.sort('sortOrder');
 		q.exec(function (err, results) {
 			locals.data.ministries = results;
 			next(err);
@@ -39,15 +40,44 @@ exports = module.exports = function (req, res) {
 	// Load Events
 	view.on('init', function (next) {
 		var q = keystone.list('Event').model.find()
-			.where('state', 'published')
-			.populate('author');
+			.where('homePage', 'true')
+			.sort('sortOrder');
 		q.exec(function (err, results) {
 			locals.data.events = results;
 			next(err);
 		});
 	});
 
-	console.log('DEBUG::locals:', locals);
+	// Load Sun Teachings
+	view.on('init', function (next) {
+		const q = keystone.list('Teaching').model.findOne()
+			.where('currentSunTeaching', 'true')
+			.populate({ path: 'books', populate: { path: 'categories' } });
+		q.exec(function (err, results) {
+			locals.data.sunTeaching = results;
+			locals.data.sunTeaching.formattedDate = locals.data.sunTeaching.date.toLocaleDateString('en-US', {
+				month: 'short',
+				day: 'numeric',
+			});
+			next(err);
+		});
+	});
+
+	// Load Wed Teachings
+	view.on('init', function (next) {
+		const q = keystone.list('Teaching').model.findOne()
+			.where('currentWedTeaching', 'true')
+			.populate({ path: 'books', populate: { path: 'categories' } });
+		q.exec(function (err, results) {
+			locals.data.wedTeaching = results;
+			locals.data.wedTeaching.formattedDate = locals.data.wedTeaching.date.toLocaleDateString('en-US', {
+				month: 'short',
+				day: 'numeric',
+			});
+			next(err);
+		});
+	});
+
 
 	// Render the view
 	view.render('index');

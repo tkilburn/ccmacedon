@@ -33,6 +33,13 @@ Teaching.add({
 	currentWedTeaching: { type: Types.Boolean },
 });
 
+Teaching.defaultColumns = 'title|20%'
+						+ ',books|15%'
+						+ ',date|15%'
+						+ ',currentSunTeaching|10%'
+						+ ',currentWedTeaching|10%'
+						+ ',teachers|20%';
+
 Teaching.schema.virtual('content.full').get(() => {
 	return this.content.extended || this.content.brief;
 });
@@ -66,5 +73,4 @@ Teaching.schema.pre('save', function (next) {
 	next();
 });
 
-Teaching.defaultColumns = 'title|20%, books|20%, state|20%, author|20%, publishedDate|20%';
 Teaching.register();

@@ -18,14 +18,11 @@ Ministry.add({
 	description: { type: Types.Html, wysiwyg: true },
 	homePage: { type: Types.Boolean },
 	ministryPage: { type: Types.Boolean },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 });
 
 Ministry.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-Ministry.defaultColumns = 'title|10%, state|20%, author|20%, publishedDate|20%';
+Ministry.defaultColumns = 'title|20%, homePage|20%, ministryPage|20%';
 Ministry.register();

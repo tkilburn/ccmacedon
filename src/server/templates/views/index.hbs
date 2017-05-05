@@ -1,15 +1,15 @@
 {{!< default}}
+
 {{#if data.announcements}}
 	<h1 class="hide__mobile"> Announcements </h1>
 	{{#each data.announcements}}
-	<div class='{{announcementClass}}'>
+	<div class="announcement {{#ifeq important true}}important-announcement{{/ifeq}}">
 		<h6> {{title}} </h6>
 		<p> {{description}} </p>
 	</div>
 	{{/each}}
 	<hr />
 {{/if}}
-
 
 {{#if data.ministries}}
 	<h1> Services </h1>
@@ -21,10 +21,33 @@
 	<hr />
 {{/if}}
 
-
 {{#if data.events}}
 	<h1> Events </h1>
 	{{#each data.events}}
-		<p> {{title}} : {{{description}}} </p>
+		<h6> {{title}} </h6>
+		<p> {{{description}}} </p>
 	{{/each}}
+{{/if}}
+
+<hr />
+
+
+<h1> Recent Teachings </h1>
+
+{{#if data.sunTeaching }}
+	<h3>
+		<span class="mobile_block">Sunday ({{data.sunTeaching.formattedDate}}) : </span>
+		<a href='/teachings/{{data.sunTeaching.books.slug}}/{{data.sunTeaching.slug}}'>
+			{{data.sunTeaching.title}}
+		</a>
+	</h3>
+{{/if}}
+
+{{#if data.wedTeaching }}
+	<h3>
+		<span class="mobile_block">Wednesday ({{data.wedTeaching.formattedDate}}) : </span>
+		<a href='/teachings/{{data.wedTeaching.books.slug}}/{{data.wedTeaching.slug}}'>
+			{{data.wedTeaching.title}}
+		</a>
+	</h3>
 {{/if}}

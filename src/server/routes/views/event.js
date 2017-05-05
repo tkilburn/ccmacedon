@@ -15,8 +15,8 @@ exports = module.exports = function (req, res) {
 	// Load Events
 	view.on('init', function (next) {
 		const q = keystone.list('Event').model.find()
-			.where('state', 'published')
-			.populate('author');
+			.where('eventPage', 'true')
+			.sort('sortOrder');
 		q.exec(function (err, results) {
 			locals.data.events = results;
 			next(err);

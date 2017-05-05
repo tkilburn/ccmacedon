@@ -20,7 +20,7 @@
 
 		{{# each navLinks}}
 				<a class="nav-item
-					{{#ifeq ../section key}}header__nav-item-selected{{/ifeq}}
+					{{#ifeq ../section currentPage}}header__nav-item-selected{{/ifeq}}
 					" href="{{ href }}">{{ label }}</a>
 		{{/each}}
 
@@ -28,7 +28,7 @@
 			<div class="field is-grouped">
 				<p class="control">
 
-					<a href='{{facebook}}' class="header__facebook-button">
+					<a href="{{facebook}}" class="header__facebook-button">
 						{{fbname}}
 					</a>
 

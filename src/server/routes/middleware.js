@@ -24,11 +24,11 @@ exports.initLocals = function (req, res, next) {
 	res.locals.facebook = keystone._options.facebook;
 
 	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'About', key: 'about', href: '/about' },
-		{ label: 'Ministries', key: 'ministries', href: '/ministries' },
-		{ label: 'Events', key: 'events', href: '/events' },
-		{ label: 'Teachings', key: 'teachings', href: '/teachings' },
+		{ label: 'Home', currentPage: 'home', href: '/' },
+		{ label: 'About', currentPage: 'about', href: '/about' },
+		{ label: 'Ministries', currentPage: 'ministries', href: '/ministries' },
+		{ label: 'Events', currentPage: 'events', href: '/events' },
+		{ label: 'Teachings', currentPage: 'teachings', href: '/teachings' },
 	];
 
 	res.locals.user = req.user;
