@@ -12,7 +12,7 @@ var handlebars = require('express-handlebars');
 // and documentation.
 keystone.init({
 	'name': 'Calvary Chapel Macedon',
-	'brand': 'ccmacedon',
+	'brand': 'Calvary Chapel Macedon',
 	'facebook': 'https://www.facebook.com/CCMacedon/',
 	'fbname': 'CC Macedon',
 
