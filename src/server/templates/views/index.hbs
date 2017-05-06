@@ -4,7 +4,7 @@
 	<h1 class="hide__mobile"> Announcements </h1>
 	{{#each data.announcements}}
 	<div class="announcement {{#ifeq important true}}important-announcement{{/ifeq}}">
-		<h6> {{title}} </h6>
+		<span class="title-underline">{{title}}</span> :
 		<p> {{description}} </p>
 	</div>
 	{{/each}}
@@ -15,7 +15,12 @@
 	<h1> Services </h1>
 	{{#each data.ministries}}
 		{{#if homePage}}
-			<p> <span class="mobile_block">{{title}} :</span> {{time}} </p>
+			<p>
+				<span class="mobile_block">
+					<span class="title-underline">{{title}}</span> :
+				</span>
+				{{time}}
+			</p>
 		{{/if}}
 	{{/each}}
 	<hr />
@@ -24,7 +29,9 @@
 {{#if data.events}}
 	<h1> Events </h1>
 	{{#each data.events}}
-		<h6> {{title}} </h6>
+		<div>
+			<span class="title-underline">{{title}}</span> :
+		</div>
 		<p> {{{description}}} </p>
 	{{/each}}
 {{/if}}
