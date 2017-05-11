@@ -49,6 +49,15 @@
     }
 
     @media(min-width: $phablet) {
+        &__ministries-time {
+            display: inline;
+        }
+    }
+
+    @media(min-width: $tablet) {
+        &__ministries-time {
+            display: block;
+        }
         &__ministries-item-left {
             display: block;
             flex-basis: 30%;
