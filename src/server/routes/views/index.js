@@ -56,7 +56,8 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, results) {
 			locals.data.sunTeaching = results;
 			locals.data.sunTeaching.formattedDate = locals.data.sunTeaching.date.toLocaleDateString('en-US', {
-				month: 'short',
+				weekday: 'long',
+				month: 'long',
 				day: 'numeric',
 			});
 			next(err);
@@ -71,7 +72,8 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, results) {
 			locals.data.wedTeaching = results;
 			locals.data.wedTeaching.formattedDate = locals.data.wedTeaching.date.toLocaleDateString('en-US', {
-				month: 'short',
+				weekday: 'long',
+				month: 'long',
 				day: 'numeric',
 			});
 			next(err);

@@ -4,8 +4,8 @@
 	<h1 class="hide__mobile"> Announcements </h1>
 	{{#each data.announcements}}
 	<div class="announcement {{#ifeq important true}}important-announcement{{/ifeq}}">
-		<span class="title-underline">{{title}}</span> :
-		<p> {{description}} </p>
+		<span class="home__title">{{title}}</span> :
+		<div class="home__description"> {{description}} </div>
 	</div>
 	{{/each}}
 	<hr />
@@ -13,48 +13,62 @@
 
 {{#if data.ministries}}
 	<h1> Services </h1>
-	{{#each data.ministries}}
-		{{#if homePage}}
-			<p>
-				<span class="mobile_block">
-					<span class="title-underline">{{title}}</span> :
-				</span>
-				{{time}}
-			</p>
-		{{/if}}
-	{{/each}}
+	<div class="home__ministries-container">
+		<div class="home__ministries-item-left">
+			<img class="home__ministries-image" src="images/worship.jpg" alt="Wnpmorship">
+		</div>
+		<div class="home__ministries-item-right">
+			{{#each data.ministries}}
+				{{#if homePage}}
+					<div class="home__description">
+						<span class="home__title">{{title}}</span> :
+						<div class="home__ministries-time">
+							{{time}}
+						</div>
+					</div>
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
 	<hr />
 {{/if}}
 
 {{#if data.events}}
 	<h1> Events </h1>
 	{{#each data.events}}
-		<div>
-			<span class="title-underline">{{title}}</span> :
-		</div>
-		<p> {{{description}}} </p>
+		<div> <span class="home__title">{{title}}</span> : </div>
+		<div class="home__description"> {{{description}}} </div>
 	{{/each}}
 {{/if}}
 
 <hr />
 
-
 <h1> Recent Teachings </h1>
-
-{{#if data.sunTeaching }}
-	<h3>
-		<span class="mobile_block">Sunday ({{data.sunTeaching.formattedDate}}) : </span>
-		<a href='/teachings/{{data.sunTeaching.books.slug}}/{{data.sunTeaching.slug}}'>
-			{{data.sunTeaching.title}}
-		</a>
-	</h3>
-{{/if}}
-
-{{#if data.wedTeaching }}
-	<h3>
-		<span class="mobile_block">Wednesday ({{data.wedTeaching.formattedDate}}) : </span>
-		<a href='/teachings/{{data.wedTeaching.books.slug}}/{{data.wedTeaching.slug}}'>
-			{{data.wedTeaching.title}}
-		</a>
-	</h3>
-{{/if}}
+<div class="home__teachings-container">
+	<div class="home__teachings-item">
+		{{#if data.sunTeaching }}
+			<a href='/teachings/{{data.sunTeaching.books.slug}}/{{data.sunTeaching.slug}}'>
+				<img class="home__teachings-image" src="images/teaching-sun.jpg" alt="Sunday Teaching">
+				<div class="home__teachings-title">
+					{{data.sunTeaching.title}}
+				</div>
+			</a>
+			<div class="home__teachings-date">
+				{{data.sunTeaching.formattedDate}}
+			</div>
+		{{/if}}
+	</div>
+	<div class="home__teachings-item">
+		{{#if data.wedTeaching }}
+			<a href='/teachings/{{data.wedTeaching.books.slug}}/{{data.wedTeaching.slug}}'>
+				<img class="home__teachings-image" src="images/teaching-wed.jpg" alt="Wednesday Teaching">
+				<div class="home__teachings-title">
+					{{data.wedTeaching.title}}
+				</div>
+			</a>
+			<div class="home__teachings-date">
+				{{data.wedTeaching.formattedDate}}
+			</div>
+		{{/if}}
+	</div>
+</div>

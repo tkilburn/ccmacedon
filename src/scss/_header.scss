@@ -17,8 +17,6 @@
     }
     &__nav-item-selected {
         background-color: $primary;
-        opacity: 0.75;
-        filter: Alpha(opacity=75);
     }
     &__nav-menu {
         &.is-active {
