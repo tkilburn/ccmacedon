@@ -49,18 +49,21 @@ p {
 }
 
 .directions_button {
-    display: block;
-    margin: 0 auto;
-    font-size: 1em;
-    background: $light;
+    background: $primary;
+    border: 1px solid darken($primary, 4%);
     border-radius: 4px;
-    border: 1px solid darken($light, 4%);
-    padding: 0.5em 2em;    
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 0.5em 2em;
     &:active {
-        background: darken($light, 4%);
+        background: darken($primary, 4%);
+        border-color: darken($primary, 8%);
     }
     &:hover {
-        background: darken($light, 4%);
+        background: darken($primary, 4%);
+        border-color: darken($primary, 8%);
     }
 }
 
