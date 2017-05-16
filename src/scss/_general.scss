@@ -48,6 +48,22 @@ p {
     width: 100%;
 }
 
+.directions_button {
+    display: block;
+    margin: 0 auto;
+    font-size: 1em;
+    background: $light;
+    border-radius: 4px;
+    border: 1px solid darken($light, 4%);
+    padding: 0.5em 2em;    
+    &:active {
+        background: darken($light, 4%);
+    }
+    &:hover {
+        background: darken($light, 4%);
+    }
+}
+
 .hide {
     display: none;
 }

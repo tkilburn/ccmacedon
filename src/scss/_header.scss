@@ -6,7 +6,14 @@
 
     &__logo-text {
         color: $white;
+        font-size: 22px;
         margin-left: 0.4em;
+        @media (min-width: 375px) {
+            font-size: 28px;
+        }
+        @media (min-width: $phablet) {
+            font-size: 36px;
+        }
     }
 
     &__nav {
@@ -63,7 +70,7 @@
         // min-width: 2em;
         &#{&} {
             background-color: $color_fb;
-            border-color: darken($color_fb, 2%);
+            border: 1px solid darken($color_fb, 10%);
             color: $white;
             width: 140px;
             &::before   {
@@ -74,12 +81,10 @@
             }
             &:active {
                 background-color: darken($color_fb, 6%);
-                border-color: darken($color_fb, 8%);
                 color: darken($white, 6%);
             }
             &:hover {
                 background-color: darken($color_fb, 2%);
-                border-color: darken($color_fb, 4%);
                 color: darken($white, 2%);
             }
         }

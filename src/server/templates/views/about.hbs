@@ -1,7 +1,7 @@
 {{!< default}}
 
 <div class="{{#if data.isMain}}hide__desktop{{else}}hide{{/if}}">
-	{{#each data.abouts}}
+{{#each data.abouts}}
 		<h1> <a href="about/{{slug}}">{{title}} </a></h1>
 		{{#if @last}} {{else}} <hr /> {{/if}}
 	{{/each}}
@@ -14,4 +14,3 @@
 		{{#if @last}} {{else}} <hr /> {{/if}}
 	{{/each}}
 </div>
-
