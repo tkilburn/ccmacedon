@@ -9,8 +9,11 @@
 
 <div class="{{#if data.isMain}}hide__mobile{{/if}}">
 	{{#each data.abouts}}
-		<h1> {{title}} </h1>
-		<p> {{{description}}} </p>
-		{{#if @last}} {{else}} <hr /> {{/if}}
+		<div class="large-vertical-margin">
+			<h1> {{title}} </h1>
+			<p> {{{description}}} </p>
+		</div>
 	{{/each}}
 </div>
+
+
