@@ -4,6 +4,10 @@
     top: 0;
     width: 100%;
 
+    &__icon {
+        width: 30px;
+    }
+
     &__logo-text {
         color: $white;
         font-size: 22px;
