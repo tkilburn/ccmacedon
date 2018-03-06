@@ -14,8 +14,10 @@ var Teaching = new keystone.List('Teaching', {
 var myStorage = new keystone.Storage({
 	adapter: keystone.Storage.Adapters.FS,
 	fs: {
-		path: 'data/file',
+		// path: 'data/file',
+		path: process.env.TEACHING_DIR,
 		publicPath: '/file',
+		whenExists: 'overwrite',
 		generateFilename: function (file, index) {
 			return file.originalname;
 		},

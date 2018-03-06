@@ -36,7 +36,6 @@ exports = module.exports = function (req, res) {
 			{ $sort: { sortOrder: 1 } },
 		]);
 		q.exec(function (err, results) {
-			console.log(results);
 			locals.data.teachingCategories = results;
 			next(err);
 		});

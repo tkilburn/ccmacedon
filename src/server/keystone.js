@@ -20,7 +20,7 @@ keystone.init({
 	'sass': 'client',
 	'static': [
 		path.join('..', 'client'),
-		path.join('..', '..', 'data', 'file'),
+		path.join(process.env.TEACHING_DIR),
 	],
 	'favicon': path.join('..', 'client', 'favicon.ico'),
 	'views': path.join('templates', 'views'),

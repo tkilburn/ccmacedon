@@ -34,7 +34,7 @@ var routes = {
 
 const getAudioTeaching = function () {
 	var fs = require('fs');
-	var file = fs.readFile('./data/file/SoundHelix-Song-1.mp3', 'binary');
+	// var file = fs.readFile('./data/file/SoundHelix-Song-1.mp3', 'binary');
 	// var file = fs.readFileSync('../data/file/tmp.txt', 'binary');
 	// var file = fs.readFileSync('./npm-debug.log', 'binary');
 	// console.log(file);
